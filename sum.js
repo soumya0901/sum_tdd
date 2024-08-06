@@ -1,5 +1,5 @@
 function add(string) {
-    var regex = /(\d|(\-(?=\d)))+/g;
+    var regex = /(\d|((\-|\+)(?=\d)))+/g;
     var numbers = string.match(regex);
     var total = 0;
     console.log(numbers);
@@ -13,6 +13,6 @@ function add(string) {
     return total;
 }
 
-add("//;\n1111;2,--3 \' \' ''5");
+add("//;\n1111;2,--3 ++2 \' \' ''5");
 
 module.exports = add;
