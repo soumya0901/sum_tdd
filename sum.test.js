@@ -24,6 +24,10 @@ describe("sum", () => {
     test('adds numbers with newline chars in string', () => {
         expect(add('1\n2, -\n9,\n +++10^%$ +++++++5')).toBe(27);
     });
+    test('adds numbers but ignores number bigger than 1000 in string', () => {
+        expect(add('//1000[*][%]\n1*2%3')).toBe(1006);
+        expect(add('//1002[*][%]\n1*2%3')).toBe(6);
+    });
 
     
 });
