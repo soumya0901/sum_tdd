@@ -3,6 +3,9 @@ function add(string) {
     var numbers = string.match(regex);
     var total = 0;
     var negNum = [];
+    if(string.trim() == '') {
+        return 0;
+    }
     for(var i=0; i < numbers.length; i++) {
         var num = parseInt(numbers[i], 10);
         if (num >= 0 && num <= 1000) {
@@ -11,17 +14,18 @@ function add(string) {
             negNum.push(num);
         }
     }
-    try {
+    //try {
         if(negNum.length) {
             throw new Error(`negative numbers not allowed ${negNum.join(',')}`);
         }
-    } catch (error) {
-        console.log(error.message);
+    
+
+    if(!negNum.length){
+        // total without negative numbers
+        return total;
     }
-    // total without negative numbers
-    return total;
 }
 
-add("//[*]+++++----9012[%]\n1*2%3-9");
+//add("//[*]+++++----9012[%]\n1*2%3-9");
 
 module.exports = add;
